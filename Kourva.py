@@ -1,7 +1,14 @@
-import itertools, time
+import time, sys
 
-for a, b, c in itertools.product(range(20), range(10), range(10)):
-    print(a, b, c)
-    time.sleep(0.02)  # 20ms delay between each character
+text = "Hello world!"
 
-# i put range(20) in first argument of itertools.product, so we don't need to use break
+# First way
+for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.02)
+
+# Second way
+for character in text:
+    print(character, end="", flush=True)
+    time.sleep(0.02)
